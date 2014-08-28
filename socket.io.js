@@ -2632,7 +2632,7 @@ Request.prototype.create = function(isBinary, supportsBinary){
       try {
         if (4 != xhr.readyState) return;
         if (200 == xhr.status || 1223 == xhr.status) {
-          var contentType = xhr.getResponseHeader('Content-Type');
+          var contentType = xhr.getResponseHeader('Content-Type').split(';')[0];
           if (contentType === 'application/octet-stream') {
             data = xhr.response;
           } else {
